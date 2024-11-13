@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PracticalTest01Var05MainActivity">
+
+    <!-- TextView pentru afisarea butoanelor apăsate -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:padding="10dp"
+        android:text="Buton apăsat: "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNewActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:editable="false"/>
+
+    <!-- Buton pentru lansarea unei noi activități, aliniat la dreapta sus -->
+    <Button
+        android:id="@+id/buttonNewActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lansează Activitate Nouă"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"/>
+
+    <!-- Buton Stânga-Sus -->
+    <Button
+        android:id="@+id/buttonTopLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sus Stânga"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- Buton Dreapta-Sus -->
+    <Button
+        android:id="@+id/buttonTopRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sus Dreapta"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- Buton Centru -->
+    <Button
+        android:id="@+id/buttonCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Centru"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Buton Stânga-Jos -->
+    <Button
+        android:id="@+id/buttonBottomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jos Stânga"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- Buton Dreapta-Jos -->
+    <Button
+        android:id="@+id/buttonBottomRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jos Dreapta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
