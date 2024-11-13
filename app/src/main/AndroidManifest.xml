@@ -26,6 +26,11 @@
             android:name=".NumberButtonPressesActivity"
             android:exported="true">
         </activity>
+
+        <activity
+            android:name=".PracticalTest01Var05SecondaryActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -17,12 +17,15 @@ class PracticalTest01Var05MainActivity : AppCompatActivity() {
     private val pressedButtons = mutableListOf<String>()
     private lateinit var textView: TextView
     private var buttonPressCount = 0  // Variabilă pentru numărarea apăsărilor de butoane
+    private lateinit var buttonStartSecondActivity: Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_practical_test_01_var05_main)
+        buttonStartSecondActivity = findViewById(R.id.buttonStartSecondActivity)  // Legătura corectă a butonului
 
         savedInstanceState?.let {
             buttonPressCount = it.getInt("BUTTON_PRESS_COUNT", 0)
@@ -69,6 +72,14 @@ class PracticalTest01Var05MainActivity : AppCompatActivity() {
         buttonCenter.setOnClickListener { updateTextView(buttonCenter.text.toString()) }
         buttonBottomLeft.setOnClickListener { updateTextView(buttonBottomLeft.text.toString()) }
         buttonBottomRight.setOnClickListener { updateTextView(buttonBottomRight.text.toString()) }
+        buttonStartSecondActivity.setOnClickListener {
+            val template = "Acesta este șablonul transmis la activitatea secundară."
+
+            // Creăm intenția pentru a lansa SecondActivity
+            val intent = Intent(this, PracticalTest01Var05SecondaryActivity::class.java)
+            intent.putExtra("TEMPLATE", template)
+            startActivityForResult(intent, 1)  // Lansează SecondActivity și așteaptă rezultatul
+        }
 
         buttonNewActivity.setOnClickListener {
             val intent = Intent(this, NumberButtonPressesActivity::class.java)
@@ -87,5 +98,19 @@ class PracticalTest01Var05MainActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
                 android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                 android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+    }
+
+    // Preluăm rezultatul din SecondActivity
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                val result = data?.getStringExtra("RESULT")
+                textView.text = "Rezultatul: $result"
+            } else if (resultCode == RESULT_CANCELED) {
+                val result = data?.getStringExtra("RESULT")
+                textView.text = "Rezultatul: $result"
+            }
+        }
     }
 }
